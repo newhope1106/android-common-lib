@@ -1,4 +1,4 @@
-package cn.appleye.commonlib;
+package cn.appleye.demo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

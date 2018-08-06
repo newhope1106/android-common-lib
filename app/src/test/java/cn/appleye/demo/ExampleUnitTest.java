@@ -1,4 +1,4 @@
-package cn.appleye.commonlib;
+package cn.appleye.demo;
 
 import org.junit.Test;
 
