@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">android-common-lib</string>
     <string name="title_activity_demo">DemoActivity</string>
+    <string name="title_activity_read_me">Document</string>
 </resources>
