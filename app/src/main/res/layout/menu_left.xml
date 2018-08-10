@@ -6,7 +6,7 @@
     android:paddingLeft="20dp">
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="90dp" />
+        android:layout_height="40dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,9 +15,12 @@
         android:textColor="@color/red"
         android:textStyle="bold"
         android:gravity="center" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/recycler_view"
         android:layout_width="240dp"
         android:layout_height="wrap_content" />
 
@@ -30,9 +33,8 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:text="Document"
+        android:text="文档"
         android:textSize="16sp"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:background="@drawable/yellow_round_rect" />
+        android:textColor="@color/red"
+        android:gravity="left" />
 </LinearLayout>
