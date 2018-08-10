@@ -17,7 +17,7 @@ public class DemoActivity extends AppCompatActivity {
         findViewById(R.id.demo_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(DemoActivity.this, DemoShowActivity.class));
             }
         });
 

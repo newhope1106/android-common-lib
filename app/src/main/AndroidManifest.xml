@@ -25,6 +25,10 @@
             android:name=".ReadMeActivity"
             android:label="@string/title_activity_read_me"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DemoShowActivity"
+            android:label="@string/title_activity_demo_show"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
