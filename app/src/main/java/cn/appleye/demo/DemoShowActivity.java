@@ -1,8 +1,10 @@
 package cn.appleye.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
@@ -34,6 +36,15 @@ public class DemoShowActivity extends AppCompatActivity {
                 .withSavedState(savedInstanceState)
                 .withMenuLayout(R.layout.menu_left)
                 .inject();
+
+        //初始化事件
+        findViewById(R.id.document_view).setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DemoShowActivity.this, ReadMeActivity.class));
+            }
+        });
     }
 
 }

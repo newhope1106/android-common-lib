@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DemoActivity"
+            android:name=".DemoShowActivity"
             android:label="@string/title_activity_demo"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,10 +25,6 @@
             android:name=".ReadMeActivity"
             android:label="@string/title_activity_read_me"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".DemoShowActivity"
-            android:label="@string/title_activity_demo_show"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
