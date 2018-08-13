@@ -6,6 +6,10 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+/**
+ * @author newhope1106
+ * 文档说明界面
+ * */
 public class ReadMeActivity extends BaseTitleActivity {
 
     @Override

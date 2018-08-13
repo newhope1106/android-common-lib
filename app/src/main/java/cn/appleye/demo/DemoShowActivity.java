@@ -15,6 +15,10 @@ import android.widget.TextView;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
+import java.util.ArrayList;
+
+import cn.appleye.commonlib.widget.FontImageView;
+
 /**
  * 显示demo效果界面
  * */
@@ -22,6 +26,17 @@ public class DemoShowActivity extends AppCompatActivity {
     private SlidingRootNav mSlidingRootNav;
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mAdapter;
+    private ArrayList<MenuItem> mFragmentDataList = new ArrayList<>();
+
+    private static class MenuItem{
+        String menuName;
+        String fragmentName;
+
+        public MenuItem(String menuName, String fragmentName){
+            this.menuName = menuName;
+            this.fragmentName= fragmentName;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +69,8 @@ public class DemoShowActivity extends AppCompatActivity {
             }
         });
 
+        initMenuData();
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,31 +78,65 @@ public class DemoShowActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    private void initMenuData(){
+        mFragmentDataList.add(new MenuItem("network", "network Class"));
+        mFragmentDataList.add(new MenuItem("thread", "Thread Class"));
+        mFragmentDataList.add(new MenuItem("util", "Thread Class"));
+    }
+
     private class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
 
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(DemoShowActivity.this).inflate(R.layout.menu_item, null);
+            View view = LayoutInflater.from(DemoShowActivity.this).inflate(R.layout.menu_item, parent, false);
             return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            TextView textView = (TextView)holder.itemView;
-            textView.setText("position - " + (position + 1));
+            String menuName = mFragmentDataList.get(position).menuName;
+            if(menuName != null && menuName.length() > 0){
+                holder.fontImageView.setText(menuName.substring(0, 1));
+            }
+            if(position % 3 == 0){
+                holder.fontImageView.setBackgroundColor(getResources().getColor(R.color.gray));
+            } else if(position % 3 == 1){
+                holder.fontImageView.setBackgroundColor(getResources().getColor(R.color.yellow));
+            } else {
+                holder.fontImageView.setBackgroundColor(getResources().getColor(R.color.red));
+            }
+
+            holder.menuTitleView.setText(menuName);
+
+            holder.itemView.setTag(position);
+            holder.itemView.setOnClickListener(onMenuItemClick);
         }
 
         @Override
         public int getItemCount() {
-            return 10;
+            return mFragmentDataList.size();
         }
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder{
+        FontImageView fontImageView;
+        TextView menuTitleView;
 
         ViewHolder(View itemView) {
             super(itemView);
+
+            fontImageView = (FontImageView)itemView.findViewById(R.id.font_image_view);
+            menuTitleView = (TextView)itemView.findViewById(R.id.menu_title_view);
         }
     }
+
+    private View.OnClickListener onMenuItemClick = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View view) {
+            int position = (int)view.getTag();
+            MenuItem menuItem = mFragmentDataList.get(position);
+        }
+    };
 }

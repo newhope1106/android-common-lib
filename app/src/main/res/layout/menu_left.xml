@@ -1,40 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="20dp">
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="40dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="common-lib"
-        android:textSize="24sp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        android:gravity="center" />
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="40dp" />
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="220dp"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp">
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/common_lib"
+            android:layout_gravity="center_horizontal"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="common-lib"
+            android:textSize="16sp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@color/white"/>
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="40dp" />
-
-    <TextView
-        android:id="@+id/document_view"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:text="文档"
-        android:textSize="16sp"
-        android:textColor="@color/red"
-        android:gravity="left" />
-</LinearLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/document_view"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="文档"
+            android:textSize="16sp"
+            android:textColor="@color/red"
+            android:gravity="left" />
+    </LinearLayout>
+</FrameLayout>
