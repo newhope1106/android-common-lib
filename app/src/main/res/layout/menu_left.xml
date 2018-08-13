@@ -40,18 +40,23 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:background="@color/white"/>
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="5dp" />
+        <TextView
+            android:id="@+id/document_view"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="document"
+            android:textSize="22sp"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/document_icon"
+            android:drawablePadding="10dp"
+            android:gravity="start|center_vertical" />
         <Space
             android:layout_width="wrap_content"
             android:layout_height="30dp" />
-        <TextView
-            android:id="@+id/document_view"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:text="文档"
-            android:textSize="16sp"
-            android:textColor="@color/red"
-            android:gravity="left" />
     </LinearLayout>
 </FrameLayout>
