@@ -7,7 +7,7 @@ import android.widget.TextView;
 /**
  * @author Liu Liaopu
  * @date 2018/8/9
- * @description 带title的基Activity
+ * 带title的基Activity
  */
 public class BaseTitleActivity extends AppCompatActivity {
 

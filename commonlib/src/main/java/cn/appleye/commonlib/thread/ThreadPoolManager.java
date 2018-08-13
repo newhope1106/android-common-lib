@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author newhope1106
  * @date 2018/8/6
- * @description 线程池管理类
+ * 线程池管理类
  */
 public class ThreadPoolManager {
     private static ThreadPoolManager sInstance;
