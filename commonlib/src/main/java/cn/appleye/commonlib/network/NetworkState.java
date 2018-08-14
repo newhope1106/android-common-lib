@@ -22,7 +22,7 @@ public class NetworkState {
     }
 
     public enum NetworkType{
-        WIFI, MOBILE, NONE//Wifi、无网络
+        WIFI, MOBILE, NONE//Wifi、移动、无网络
     }
 
     public enum SubNetworkType{

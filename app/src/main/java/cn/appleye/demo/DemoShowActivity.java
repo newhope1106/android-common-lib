@@ -152,7 +152,7 @@ public class DemoShowActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             String menuName = mFragmentDataList.get(position).menuName;
             if(menuName != null && menuName.length() > 0){
-                holder.fontImageView.setText(menuName.substring(0, 1));
+                holder.fontImageView.setText(menuName.substring(0, 1).toUpperCase());
             }
             if(position % 3 == 0){
                 holder.fontImageView.setBackgroundColor(getResources().getColor(R.color.gray));
