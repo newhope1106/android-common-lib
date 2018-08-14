@@ -1,25 +1,28 @@
-package cn.appleye.demo;
+package cn.appleye.demo.fragment;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import cn.appleye.demo.R;
+
 /**
  * @author newhope1106
- * 文档说明界面
- * */
-public class ReadMeActivity extends BaseTitleActivity {
+ * @date 2018/8/14
+ * 文档界面
+ */
+public class DocumentFragment extends Fragment{
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_me);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View rootView = inflater.inflate(R.layout.fragment_document, null);
 
-        setTitle("Document");
-
-        WebView webView = (WebView) findViewById(R.id.webview);
+        WebView webView = (WebView) rootView.findViewById(R.id.webview);
         webView.setWebChromeClient(new WebChromeClient());
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -49,6 +52,7 @@ public class ReadMeActivity extends BaseTitleActivity {
 
         });
         webView.loadUrl("file:///android_asset/README.html");
-    }
 
+        return rootView;
+    }
 }

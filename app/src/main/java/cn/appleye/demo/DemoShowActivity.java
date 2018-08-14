@@ -1,8 +1,9 @@
 package cn.appleye.demo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +17,10 @@ import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import cn.appleye.commonlib.utils.ReflectUtil;
 import cn.appleye.commonlib.widget.FontImageView;
 
 /**
@@ -27,6 +31,7 @@ public class DemoShowActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mAdapter;
     private ArrayList<MenuItem> mFragmentDataList = new ArrayList<>();
+    private Map<String , Fragment> mFragmentMap = new HashMap<>();
 
     private static class MenuItem{
         String menuName;
@@ -46,6 +51,15 @@ public class DemoShowActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         initLeftMenu(toolbar, savedInstanceState);
+
+        showDocumentFragment();
+    }
+
+    /**
+     * 显示文档
+     * */
+    private void showDocumentFragment(){
+        showFragment("cn.appleye.demo.fragment.DocumentFragment");
     }
 
     /**
@@ -65,7 +79,7 @@ public class DemoShowActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DemoShowActivity.this, ReadMeActivity.class));
+                showDocumentFragment();
             }
         });
 
@@ -82,6 +96,36 @@ public class DemoShowActivity extends AppCompatActivity {
         mFragmentDataList.add(new MenuItem("network", "network Class"));
         mFragmentDataList.add(new MenuItem("thread", "Thread Class"));
         mFragmentDataList.add(new MenuItem("util", "Thread Class"));
+    }
+
+    private void showFragment(String fragmentCls){
+        Fragment fragment = mFragmentMap.get(fragmentCls);
+        if(fragment == null){
+            try{
+                fragment = (Fragment)ReflectUtil.newInstance(fragmentCls, null, null);
+                mFragmentMap.put(fragment.getClass().getName(), fragment);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        showFragment(fragment);
+    }
+
+    private void showFragment(Fragment fragment){
+        if(fragment != null && !fragment.isVisible()){
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, fragment);
+            transaction.commit();
+        }
+    }
+
+    private void hideFragment(Fragment fragment){
+        if(fragment != null && fragment.isVisible()){
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.remove(fragment);
+            transaction.commit();
+        }
     }
 
     private class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
