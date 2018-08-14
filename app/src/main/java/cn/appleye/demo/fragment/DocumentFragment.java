@@ -15,7 +15,7 @@ import cn.appleye.demo.R;
 /**
  * @author newhope1106
  * @date 2018/8/14
- * 文档界面
+ * 文档说明
  */
 public class DocumentFragment extends Fragment{
 

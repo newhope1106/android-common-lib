@@ -3,4 +3,5 @@
     <string name="title_activity_demo">android-common-lib</string>
     <string name="title_activity_read_me">Document</string>
     <string name="title_activity_demo_show">DemoShowActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

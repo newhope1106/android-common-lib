@@ -2,6 +2,8 @@ package cn.appleye.demo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +55,15 @@ public class DemoShowActivity extends AppCompatActivity {
         initLeftMenu(toolbar, savedInstanceState);
 
         showDocumentFragment();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     /**
@@ -93,9 +104,9 @@ public class DemoShowActivity extends AppCompatActivity {
     }
 
     private void initMenuData(){
-        mFragmentDataList.add(new MenuItem("network", "network Class"));
-        mFragmentDataList.add(new MenuItem("thread", "Thread Class"));
-        mFragmentDataList.add(new MenuItem("util", "Thread Class"));
+        mFragmentDataList.add(new MenuItem("network", "cn.appleye.demo.fragment.NetworkFragment"));
+        mFragmentDataList.add(new MenuItem("thread", "cn.appleye.demo.fragment.ThreadFragment"));
+        mFragmentDataList.add(new MenuItem("util", "cn.appleye.demo.fragment.UtilFragment"));
     }
 
     private void showFragment(String fragmentCls){
@@ -181,6 +192,7 @@ public class DemoShowActivity extends AppCompatActivity {
         public void onClick(View view) {
             int position = (int)view.getTag();
             MenuItem menuItem = mFragmentDataList.get(position);
+            showFragment(menuItem.fragmentName);
         }
     };
 }
