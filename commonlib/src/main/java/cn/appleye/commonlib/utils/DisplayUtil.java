@@ -4,7 +4,7 @@ import android.content.Context;
 
 /**
  * @author newhope1106
- * @date 2018/8/6
+ * date 2018/8/6
  * dp和px,sp和px之间的转换
  */
 public class DisplayUtil {

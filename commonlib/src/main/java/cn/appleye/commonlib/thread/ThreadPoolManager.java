@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author newhope1106
- * @date 2018/8/6
+ * date 2018/8/6
  * 线程池管理类
  */
 public class ThreadPoolManager {

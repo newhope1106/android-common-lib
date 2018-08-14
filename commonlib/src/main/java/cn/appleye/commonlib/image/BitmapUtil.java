@@ -18,7 +18,7 @@ import java.io.InputStream;
 
 /**
  * @author newhope1106
- * @date 2018/8/13
+ * date 2018/8/13
  * 图片处理工具
  */
 public class BitmapUtil {

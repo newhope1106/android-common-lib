@@ -15,8 +15,8 @@ import cn.appleye.commonlib.utils.FontUtil;
 
 /**
  * @author newhope1106
- * @date 2018/8/13
- * 可以显示图片或者字体的控件
+ * date 2018/8/13
+ * 居中显示文字的圆形控件
  */
 public class FontImageView extends AppCompatImageView {
     private int mBackgroundColor = 0xff868686;
