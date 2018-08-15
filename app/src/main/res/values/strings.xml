@@ -4,4 +4,7 @@
     <string name="title_activity_read_me">Document</string>
     <string name="title_activity_demo_show">DemoShowActivity</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <!--每个库的描述性文字-->
+    <string name="des_network">监听并获取当前网络状态，可以切换网络查看网络信息</string>
 </resources>
