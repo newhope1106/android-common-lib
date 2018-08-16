@@ -1,13 +1,14 @@
 package cn.appleye.commonlib.utils;
 
 import android.content.Context;
+import android.content.res.Configuration;
 
 /**
  * @author newhope1106
  * date 2018/8/6
- * dp和px,sp和px之间的转换
+ * dp和px,sp和px之间的转换，以及显示相关的信息
  */
-public class DisplayUtil {
+public final class DisplayUtil {
     /**
      * 将px换算成dp
      * @param context 上下文
@@ -52,4 +53,42 @@ public class DisplayUtil {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
+
+    /**
+     * 获取显示器宽度
+     * @param context 上下文
+     * @return 宽度(px)
+     * */
+    public static int getDisplayWidth(Context context){
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
+     * 获取显示器宽度
+     * @param context 上下文
+     * @return 高度(px)
+     * */
+    public static int getDisplayHeight(Context context){
+        return context.getResources().getDisplayMetrics().heightPixels;
+    }
+
+    /**
+     * 是否横屏
+     * @param context 上下文
+     * @return true-横屏
+     * */
+    public static boolean isLandscape(Context context){
+        return Configuration.ORIENTATION_LANDSCAPE == context.getResources().getConfiguration().orientation;
+    }
+
+    /**
+     * 是否横屏
+     * @param context 上下文
+     * @return true-竖屏
+     * */
+    public static boolean isPotrait(Context context){
+        return Configuration.ORIENTATION_PORTRAIT == context.getResources().getConfiguration().orientation;
+    }
+
+
 }
