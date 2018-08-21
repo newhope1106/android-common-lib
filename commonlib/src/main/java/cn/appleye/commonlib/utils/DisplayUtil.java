@@ -90,5 +90,11 @@ public final class DisplayUtil {
         return Configuration.ORIENTATION_PORTRAIT == context.getResources().getConfiguration().orientation;
     }
 
-
+    /**
+     * 是否是平板
+     * @return true 平板 false 非平板
+     * */
+    public static boolean isTablet(Context context){
+        return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
 }
